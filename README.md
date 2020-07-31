@@ -1,3 +1,5 @@
+<img src="https://i.imgur.com/7bQrAeO.png" align="right" />
+
 # bitbar-upbank
 
 [![MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://github.com/jakehwll/bitbar-upbank/blob/master/LICENSE.md)
