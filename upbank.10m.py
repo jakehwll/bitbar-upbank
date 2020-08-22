@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import requests
+import re
 
 # ===============
 
@@ -21,9 +22,12 @@ if response.status_code == 200:
   print('---')
   print('ACCOUNT BALANCES | size=10')
   for data in response.json()['data']:
-    acc_name = data['attributes']['displayName']
+    if re.findall(r'[^\w\s,]', data['attributes']['displayName']):
+      acc_name = data['attributes']['displayName']
+    else:
+      acc_name = "⚡ " + data['attributes']['displayName']
     acc_value = data['attributes']['balance']['value']
-    print(f"⚡ { acc_name } - ${ acc_value }")
+    print(f"{ acc_name } - ${ acc_value }")
 else:
   print(f'⚠️ | templateImage={icon}')
   print('---')
